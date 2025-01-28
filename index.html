@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新年快乐 2024</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #ff0000, #ff6b6b);
+            font-family: "Microsoft YaHei", sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .greeting {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .message {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            animation: slideUp 2s ease-out;
+        }
+
+        .firework {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #fff;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="greeting">新年快乐</h1>
+        <div class="message">
+            愿您在新的一年里<br>
+            事事顺心，万事如意<br>
+            身体健康，阖家幸福<br>
+            蛇年大吉，前程似锦
+        </div>
+    </div>
+
+    <script>
+        // 创建烟花效果
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            
+            // 随机位置
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            
+            firework.style.left = x + 'px';
+            firework.style.top = y + 'px';
+            
+            document.body.appendChild(firework);
+            
+            // 随机颜色
+            const colors = ['#ff0', '#f0f', '#0ff', '#0f0'];
+            firework.style.background = colors[Math.floor(Math.random() * colors.length)];
+            
+            // 动画结束后移除元素
+            setTimeout(() => {
+                document.body.removeChild(firework);
+            }, 1000);
+        }
+
+        // 每隔一段时间创建烟花
+        setInterval(createFirework, 300);
+    </script>
+</body>
+</html> 
